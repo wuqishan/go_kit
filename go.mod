@@ -1,4 +1,4 @@
-module go_kit
+module go_kit_dev
 
 go 1.20
 
