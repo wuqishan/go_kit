@@ -6,6 +6,7 @@ import (
 	"github.com/nacos-group/nacos-sdk-go/clients/config_client"
 	"github.com/nacos-group/nacos-sdk-go/common/constant"
 	"github.com/nacos-group/nacos-sdk-go/vo"
+	"go_kit/hashx"
 )
 
 func newConfigClient(host, tenant string) (config_client.IConfigClient, error) {
@@ -39,7 +40,7 @@ func newConfigClient(host, tenant string) (config_client.IConfigClient, error) {
 func (nc *NConfig) GetContent(dataID string) (content string, err error) {
 	content, err = nc.Client.GetConfig(vo.ConfigParam{
 		DataId: dataID,
-		Group:  c.Group,
+		Group:  nc.Group,
 	})
 	return content, err
 }
@@ -60,7 +61,7 @@ func (nc *NConfig) DataIDMD5(dataID string) (md5 string, err error) {
 func (nc *NConfig) PublishConfig(dataID, content string) (b bool, err error) {
 	b, err = nc.Client.PublishConfig(vo.ConfigParam{
 		DataId:  dataID,
-		Group:   c.Group,
+		Group:   nc.Group,
 		Content: content,
 		Type:    vo.JSON,
 	})

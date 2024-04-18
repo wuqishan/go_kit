@@ -70,7 +70,7 @@ func Union(s1, s2 []int) []int {
 // Diff 差集
 func Diff(s1, s2 []int) []int {
 	m := make(map[int]int)
-	nn := make([]int, 0)
+	n := make([]int, 0)
 	inter := Intersect(s1, s2)
 	for _, v := range inter {
 		m[v]++
@@ -78,10 +78,10 @@ func Diff(s1, s2 []int) []int {
 	for _, v := range s1 {
 		times, _ := m[v]
 		if times == 0 {
-			nn = append(nn, v)
+			n = append(n, v)
 		}
 	}
-	return nn
+	return n
 }
 
 // Ints 转换至[]int

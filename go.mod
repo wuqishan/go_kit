@@ -4,6 +4,7 @@ go 1.20
 
 require (
 	github.com/360EntSecGroup-Skylar/excelize v1.4.1
+	github.com/davecgh/go-spew v1.1.1
 	github.com/gogf/gf/v2 v2.6.4
 	github.com/nacos-group/nacos-sdk-go v1.1.4
 	golang.org/x/time v0.5.0
