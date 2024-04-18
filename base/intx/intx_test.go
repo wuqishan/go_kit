@@ -60,11 +60,3 @@ func TestDiff(t *testing.T) {
 		t.Error()
 	}
 }
-
-// TestInts ...
-func TestInts(t *testing.T) {
-	a := []string{"aa", "b", "2", "3", "4"}
-	if c := Ints(a); len(c) != 5 {
-		t.Error()
-	}
-}

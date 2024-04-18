@@ -1,7 +1,5 @@
 package intx
 
-import "github.com/gogf/gf/v2/util/gconv"
-
 // InArray 包含
 func InArray(x int, a []int) bool {
 	for _, v := range a {
@@ -82,9 +80,4 @@ func Diff(s1, s2 []int) []int {
 		}
 	}
 	return n
-}
-
-// Ints 转换至[]int
-func Ints(i interface{}) []int {
-	return gconv.Ints(i)
 }

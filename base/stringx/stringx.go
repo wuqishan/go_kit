@@ -1,7 +1,6 @@
 package stringx
 
 import (
-	"github.com/gogf/gf/v2/util/gconv"
 	"strings"
 )
 
@@ -82,9 +81,4 @@ func Diff(s1, s2 []string) []string {
 		}
 	}
 	return n
-}
-
-// Strings 转换至[]int
-func Strings(i interface{}) []string {
-	return gconv.Strings(i)
 }
