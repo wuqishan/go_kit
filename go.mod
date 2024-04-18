@@ -1,4 +1,4 @@
-module github.com/wuqishan/go_kit
+module go_kit
 
 go 1.20
 
