@@ -3,7 +3,7 @@ package httpx
 import (
 	"bytes"
 	"encoding/json"
-	"github.com/gogf/gf/v2/util/gconv"
+	"github.com/wuqishan/go_kit/base/stringx"
 	"io/ioutil"
 	"net/http"
 	"net/url"
@@ -86,7 +86,7 @@ func (c *Conf) getParams() ([]byte, error) {
 			}
 			val := tmp.Query()
 			for k, v := range c.Params {
-				val.Set(k, gconv.String(v))
+				val.Set(k, stringx.String(v))
 			}
 			tmp.RawQuery = val.Encode()
 			c.Url = tmp.String()
