@@ -4,8 +4,6 @@ import (
 	"bytes"
 	"encoding/json"
 	"io"
-
-	"github.com/gogf/gf/v2/errors/gerror"
 )
 
 // RawMessage is a raw encoded JSON value.
@@ -18,20 +16,12 @@ type RawMessage = json.RawMessage
 // Marshal returns the JSON encoding of v, adapts to json/encoding Marshal API
 // Refer to https://godoc.org/encoding/json#Marshal for more information.
 func Marshal(v interface{}) (marshaledBytes []byte, err error) {
-	marshaledBytes, err = json.Marshal(v)
-	if err != nil {
-		err = gerror.Wrap(err, `json.Marshal failed`)
-	}
-	return
+	return json.Marshal(v)
 }
 
 // MarshalIndent same as json.MarshalIndent.
 func MarshalIndent(v interface{}, prefix, indent string) (marshaledBytes []byte, err error) {
-	marshaledBytes, err = json.MarshalIndent(v, prefix, indent)
-	if err != nil {
-		err = gerror.Wrap(err, `json.MarshalIndent failed`)
-	}
-	return
+	return json.MarshalIndent(v, prefix, indent)
 }
 
 // Unmarshal adapts to json/encoding Unmarshal API
@@ -39,11 +29,7 @@ func MarshalIndent(v interface{}, prefix, indent string) (marshaledBytes []byte,
 // Unmarshal parses the JSON-encoded data and stores the result in the value pointed to by v.
 // Refer to https://godoc.org/encoding/json#Unmarshal for more information.
 func Unmarshal(data []byte, v interface{}) (err error) {
-	err = json.Unmarshal(data, v)
-	if err != nil {
-		err = gerror.Wrap(err, `json.Unmarshal failed`)
-	}
-	return
+	return json.Unmarshal(data, v)
 }
 
 // UnmarshalUseNumber decodes the json data bytes to target interface using number option.
@@ -51,9 +37,6 @@ func UnmarshalUseNumber(data []byte, v interface{}) (err error) {
 	decoder := NewDecoder(bytes.NewReader(data))
 	decoder.UseNumber()
 	err = decoder.Decode(v)
-	if err != nil {
-		err = gerror.Wrap(err, `json.UnmarshalUseNumber failed`)
-	}
 	return
 }
 
